@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trợ lý AI Groq tư vấn thực đơn và hỗ trợ đặt món tại Trà sữa NicoLatBai.">
+  <meta name="theme-color" content="#f6efe4">
+  <title>NicoLatBai — Trợ lý AI đặt món</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="NicoLatBai — về đầu trang">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span>NicoLatBai<small>milk tea & more</small></span>
+    </a>
+    <nav aria-label="Điều hướng chính">
+      <a href="#menu">Thực đơn</a>
+      <a href="#about">Về quán</a>
+      <a class="nav-cta" href="#assistant">Hỏi trợ lý AI</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Gò Vấp · Mở cửa từ 08:00</p>
+        <h1 id="hero-title">Một ly đúng gu,<br><em>AI</em> giúp bạn chọn.</h1>
+        <p class="hero-lead">Trợ lý AI của NicoLatBai hiểu thực đơn, tư vấn khẩu vị và ghi nhận thông tin đặt món trong một cuộc trò chuyện tự nhiên.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#assistant">Bắt đầu trò chuyện <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#menu">Xem thực đơn <span aria-hidden="true">↓</span></a>
+        </div>
+        <ul class="hero-facts" aria-label="Thông tin nổi bật">
+          <li><strong>7</strong><span>món chính</span></li>
+          <li><strong>3 km</strong><span>freeship</span></li>
+          <li><strong>AI</strong><span>tư vấn 24/7</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-art" aria-label="Minh họa ly trà sữa NicoLatBai">
+        <div class="art-note note-one">Ít ngọt<br><strong>70%</strong></div>
+        <div class="art-note note-two">Trân châu<br><strong>nấu mới</strong></div>
+        <div class="cup-shadow"></div>
+        <svg class="cup" viewBox="0 0 360 480" role="img" aria-labelledby="cup-title">
+          <title id="cup-title">Ly trà sữa trân châu</title>
+          <path d="M229 18h21l-37 126h-21z" fill="#2e4b3f"/>
+          <path d="M64 117h232l-26 309c-2 24-22 42-46 42h-88c-24 0-44-18-46-42z" fill="#fff9ee" stroke="#2e4b3f" stroke-width="7"/>
+          <path d="M78 211h204l-18 214c-2 18-17 31-35 31h-98c-18 0-33-13-35-31z" fill="#d4a66f"/>
+          <path d="M75 117h210c18 0 32 14 32 32v8H43v-8c0-18 14-32 32-32z" fill="#f5d874" stroke="#2e4b3f" stroke-width="7"/>
+          <path d="M111 222c42 18 96 18 138 0" fill="none" stroke="#fff9ee" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+          <g fill="#39291f"><circle cx="126" cy="397" r="14"/><circle cx="163" cy="420" r="14"/><circle cx="202" cy="399" r="14"/><circle cx="238" cy="426" r="14"/><circle cx="126" cy="443" r="14"/><circle cx="201" cy="447" r="14"/></g>
+          <text x="180" y="327" text-anchor="middle" fill="#2e4b3f" font-family="DM Serif Display,serif" font-size="42">Nico</text>
+          <text x="180" y="354" text-anchor="middle" fill="#2e4b3f" font-family="Be Vietnam Pro,sans-serif" font-size="12" letter-spacing="5">LATBAI</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Cam kết của quán">
+      <div>TRÀ Ủ MỖI NGÀY <span>✦</span> TRÂN CHÂU NẤU MỚI <span>✦</span> TÙY CHỈNH ĐƯỜNG ĐÁ <span>✦</span> GIAO NHANH GÒ VẤP <span>✦</span> TRÀ Ủ MỖI NGÀY <span>✦</span> TRÂN CHÂU NẤU MỚI <span>✦</span> TÙY CHỈNH ĐƯỜNG ĐÁ <span>✦</span> GIAO NHANH GÒ VẤP <span>✦</span></div>
+    </section>
+
+    <section class="menu section-shell" id="menu" aria-labelledby="menu-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Chọn theo tâm trạng</p><h2 id="menu-title">Thực đơn hôm nay</h2></div>
+        <p>Giá thay đổi theo kích cỡ. Topping từ 5.000đ đến 10.000đ.</p>
+      </div>
+      <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <section class="assistant-section section-shell" id="assistant" aria-labelledby="assistant-title">
+      <div class="assistant-intro">
+        <p class="eyebrow eyebrow-light"><span></span> Powered by Groq AI</p>
+        <h2 id="assistant-title">Bạn kể gu,<br>AI chọn món.</h2>
+        <p>Hỏi về giá, hương vị, topping, giờ mở cửa hoặc nhờ trợ lý ghi nhận một đơn hàng. AI trả lời dựa trên dữ liệu riêng của NicoLatBai.</p>
+        <div class="ai-points">
+          <span><b>01</b> Hiểu câu hỏi tự nhiên</span>
+          <span><b>02</b> Tư vấn theo khẩu vị</span>
+          <span><b>03</b> Ghi nhận thông tin đơn</span>
+        </div>
+      </div>
+
+      <div class="chat-card">
+        <div class="chat-head">
+          <div class="avatar">N</div>
+          <div><strong>Trợ lý Nico</strong><small><i></i> Groq AI đang sẵn sàng</small></div>
+          <button id="clear-chat" class="icon-button" type="button" aria-label="Xóa cuộc trò chuyện" title="Xóa cuộc trò chuyện">↻</button>
+        </div>
+        <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="suggestions" id="suggestions" aria-label="Câu hỏi gợi ý"></div>
+        <form id="chat-form" class="chat-form">
+          <label class="sr-only" for="message-input">Nhập tin nhắn</label>
+          <textarea id="message-input" rows="1" maxlength="800" placeholder="Ví dụ: Mình thích vị thanh, ít ngọt..." required></textarea>
+          <button id="send-button" type="submit" aria-label="Gửi tin nhắn">Gửi <span aria-hidden="true">↑</span></button>
+        </form>
+        <p class="chat-disclaimer">AI có thể mắc lỗi. Đơn chỉ được xác nhận sau khi nhân viên liên hệ.</p>
+      </div>
+    </section>
+
+    <section class="about section-shell" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Ghé NicoLatBai</p><h2 id="about-title">Thông tin quán</h2></div>
+      </div>
+      <div class="info-grid">
+        <article><span>01</span><h3>Địa chỉ</h3><p>Đường số 20, Phường An Nhơn, Quận Gò Vấp, TP. Hồ Chí Minh</p></article>
+        <article><span>02</span><h3>Giờ mở cửa</h3><p>08:00 đến khi hết khách, mỗi ngày trong tuần</p></article>
+        <article><span>03</span><h3>Liên hệ</h3><p><a href="tel:0383978888">038.397.8888</a><br>Freeship trong bán kính 3 km</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">N</span><span>NicoLatBai<small>milk tea & more</small></span></a>
+    <p>Trợ lý AI tư vấn thực đơn — một đề tài ứng dụng Groq và Qwen.</p>
+    <p>© <span id="year"></span> NicoLatBai</p>
+  </footer>
+</body>
+</html>
