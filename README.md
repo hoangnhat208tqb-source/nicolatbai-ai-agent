@@ -4,9 +4,9 @@ Website trợ lý AI chăm sóc khách hàng cho quán trà sữa NicoLatBai. Gi
 
 ## Cấu trúc
 
-- `index.html`: nội dung và cấu trúc giao diện.
-- `styles.css`: toàn bộ phần trình bày responsive.
-- `app.js`: dựng menu, quản lý hội thoại và gọi API.
+- `index.html`: cấu trúc giao diện chatbot chăm sóc khách hàng.
+- `styles.css`: giao diện chatbot responsive.
+- `app.js`: quản lý hội thoại và gọi API.
 - `api/chat.js`: endpoint serverless gọi Groq Chat Completions API.
 - `docs/CHUONG-2.md`: nội dung Chương 2 và checklist ảnh minh họa.
 

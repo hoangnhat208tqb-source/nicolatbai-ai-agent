@@ -1,15 +1,7 @@
-const MENU = [
-  { icon: "🧋", name: "Trà sữa truyền thống", price: "22K — 32K", desc: "Trà đậm, hậu chát nhẹ, béo vừa và không ngọt gắt." },
-  { icon: "🥛", name: "Sữa tươi đường đen", price: "25K — 35K", desc: "Sữa tươi béo ngậy, sốt đường đen và trân châu nấu mới." },
-  { icon: "🍍", name: "Trà lài đác thơm", price: "20K — 30K", desc: "Chua ngọt tự nhiên, cốt trà lài thơm, uống rất thanh." },
-  { icon: "🍓", name: "Trà dâu tằm", price: "20K — 30K", desc: "Vị thanh nhẹ, chua ngọt cân bằng, dễ uống." },
-  { icon: "🥗", name: "Bánh tráng trộn", price: "15K — 25K", desc: "Món ăn vặt đậm vị, hợp để nhâm nhi cùng trà." },
-  { icon: "🍢", name: "Cá viên chiên", price: "15K — 25K", desc: "Chiên mới nóng giòn, dùng kèm tương chấm." },
-  { icon: "🍟", name: "Khoai tây lắc", price: "15K — 25K", desc: "Giòn rụm bên ngoài, phủ gia vị đậm đà." }
-];
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
 
 const STARTERS = ["Gợi ý món thanh mát", "Quán có topping gì?", "Mình muốn đặt 2 ly", "Quán có freeship không?"];
-const menuGrid = document.querySelector("#menu-grid");
 const chatLog = document.querySelector("#chat-log");
 const suggestions = document.querySelector("#suggestions");
 const form = document.querySelector("#chat-form");
@@ -18,14 +10,6 @@ const sendButton = document.querySelector("#send-button");
 const clearButton = document.querySelector("#clear-chat");
 let messages = [];
 let busy = false;
-
-function renderMenu() {
-  menuGrid.innerHTML = MENU.map((item) => `
-    <article class="menu-card">
-      <div class="menu-top"><span class="menu-icon" aria-hidden="true">${item.icon}</span><span class="menu-price">${item.price}</span></div>
-      <h3>${item.name}</h3><p>${item.desc}</p>
-    </article>`).join("");
-}
 
 function addMessage(text, type, extraClass = "") {
   const node = document.createElement("div");
@@ -50,7 +34,6 @@ function resetConversation() {
   messages = [];
   chatLog.innerHTML = "";
   addMessage("Xin chào! Mình là trợ lý AI của NicoLatBai. Bạn đang muốn tìm một món hợp gu hay cần hỗ trợ đặt món?", "bot");
-  input.focus();
 }
 
 function renderStarters() {
@@ -108,7 +91,6 @@ input.addEventListener("keydown", (event) => {
 });
 clearButton.addEventListener("click", resetConversation);
 
-renderMenu();
 renderStarters();
 resetConversation();
 document.querySelector("#year").textContent = new Date().getFullYear();
